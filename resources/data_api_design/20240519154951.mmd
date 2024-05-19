@@ -1,0 +1,22 @@
+
+classDiagram
+    class Game {
+        -board: list
+        -score: int
+        +start_game() None
+        +move(direction: str) bool
+        +is_game_over() bool
+        +get_score() int
+    }
+    class UI {
+        -game: Game
+        +display_board() None
+        +display_score() None
+        +handle_input(input: str) None
+    }
+    class FlaskApp {
+        -ui: UI
+        +run() None
+    }
+    Game --> UI: uses
+    UI --> FlaskApp: uses

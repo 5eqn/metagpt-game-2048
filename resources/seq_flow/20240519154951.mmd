@@ -1,0 +1,17 @@
+
+sequenceDiagram
+    participant M as Main
+    participant G as Game
+    participant U as UI
+    participant F as FlaskApp
+    M->>G: start_game()
+    loop Game Loop
+        U->>G: move(direction)
+        G-->>U: return result
+        U->>G: is_game_over()
+        G-->>U: return result
+    end
+    U->>G: get_score()
+    G-->>U: return score
+    U->>F: display_score()
+    F->>U: handle_input(input)
